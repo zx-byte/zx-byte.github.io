@@ -215,8 +215,8 @@
             app_id: pf8sLdnl9UDkyGBO3druPu0c-gzGzoHsz,
             app_key: mSId9GxgQguu0rg6KjbIksSf,
             path: window.location.pathname,
-            avatar: monsterid,
-            placeholder: 千山万水总是情，留个评论行不行~,
+            avatar: "monsterid",
+            placeholder: "千山万水总是情，留个评论行不行",
             recordIP: true,
         
         // 设置Bilibili表情包地址
@@ -239,7 +239,7 @@
           // ... 更多表情
         } 	
         });
-        const infoEle = document.querySelector("#vcomments .info");
+        const infoEle = document.querySelector('#vcomments .info');
         if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
             infoEle.childNodes.forEach(function (item) {
                 item.parentNode.removeChild(item);
