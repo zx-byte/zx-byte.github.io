@@ -79,6 +79,69 @@
     
     
     <article
+  id="post-暑假打卡第四天-串"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/07/02/%E6%9A%91%E5%81%87%E6%89%93%E5%8D%A1%E7%AC%AC%E5%9B%9B%E5%A4%A9-%E4%B8%B2/"
+    >暑假打卡第四天(串)</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/07/02/%E6%9A%91%E5%81%87%E6%89%93%E5%8D%A1%E7%AC%AC%E5%9B%9B%E5%A4%A9-%E4%B8%B2/" class="article-date">
+  <time datetime="2020-07-02T09:30:06.000Z" itemprop="datePublished">2020-07-02</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>@[toc]</p>
+<h2 id="1，串的定义"><a href="#1，串的定义" class="headerlink" title="1，串的定义"></a>1，串的定义</h2><p><strong>串是由零个或多个字符组成的有限序列。串中字符的个数称为串的长度，含有零个元素的叫空串。</strong><br><font color="red"> <strong>注：由一个或多个空格组成的叫空格串，空格串不是空串</strong> </font></p>
+<h2 id="2，串的存储结构"><a href="#2，串的存储结构" class="headerlink" title="2，串的存储结构"></a>2，串的存储结构</h2><p>（1）定长顺序存储表示：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	<span class="keyword">char</span> str[maxSize+<span class="number">1</span>];</span><br><span class="line">	<span class="keyword">int</span> len;</span><br><span class="line">&#125;Str;</span><br></pre></td></tr></table></figure>
+<p>（2）变长分配存储表示：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">	<span class="keyword">char</span> *ch;</span><br><span class="line">	<span class="keyword">int</span> len;</span><br><span class="line">&#125;Str;</span><br></pre></td></tr></table></figure>
+<h2 id="3，串的基本操作"><a href="#3，串的基本操作" class="headerlink" title="3，串的基本操作"></a>3，串的基本操作</h2><p>(1)赋值操作</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//赋值操作</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">strassign</span><span class="params">(Str &amp;str,<span class="keyword">char</span> *ch)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(str.ch)&#123;</span><br><span class="line">		<span class="built_in">free</span>(str.ch);<span class="comment">//先清空str串 </span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> len=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> *c;</span><br><span class="line">	<span class="keyword">while</span>(*c)&#123;</span><br><span class="line">		len++;<span class="comment">//求ch串的长度 </span></span><br><span class="line">		c++;</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="comment">//如果ch串为空，则str也置为空 </span></span><br><span class="line">	<span class="keyword">if</span>(len==<span class="number">0</span>)&#123;</span><br><span class="line">		str.len=<span class="number">0</span>;</span><br><span class="line">		str.ch=<span class="literal">NULL</span>;</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		str.ch=(<span class="keyword">char</span>*)<span class="built_in">malloc</span>(szieof(<span class="keyword">char</span>*)*(len+<span class="number">1</span>));</span><br><span class="line">		<span class="keyword">if</span>(str.ch==<span class="literal">NULL</span>)&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			c=ch;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">				str.ch[i]=*c;</span><br><span class="line">				str.len=len;</span><br><span class="line">				<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(2)取串长度操作</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//取串长度操作</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">strlength</span><span class="params">(Str str)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> str.len;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(3)串比较操作</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//串比较操作</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">strcompare</span><span class="params">(Str str1,Str str2)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;str1.len &amp;&amp; i&lt;str2.len;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(str1.ch[i]!=str2.ch[i])&#123;</span><br><span class="line">			<span class="keyword">return</span> str1.ch[i]-str2.ch[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> str1.len-str2.len;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(4)串连接操作</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//串连接操作</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">concat</span><span class="params">(Str &amp;str,Str str1,Str str2)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(str.ch)&#123;</span><br><span class="line">		<span class="built_in">free</span>(str.ch);<span class="comment">//先清空str串</span></span><br><span class="line">		str.ch=<span class="literal">NULL</span>; </span><br><span class="line">	&#125;</span><br><span class="line">	str.ch=(<span class="keyword">char</span>*)<span class="built_in">malloc</span>(szieof(<span class="keyword">char</span>*)*(str1.len+str2.len+<span class="number">1</span>));</span><br><span class="line">		<span class="keyword">if</span>(str.ch==<span class="literal">NULL</span>)&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span>(i&lt;str1.len)&#123;</span><br><span class="line">			str.ch[i]=str1.ch[i];</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span>(j&lt;=str2.len)&#123;</span><br><span class="line">			str.ch[j+i]=str2.ch[j];</span><br><span class="line">			j++;</span><br><span class="line">		&#125;</span><br><span class="line">		str.len=str1.len+str2.len;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(5)串清空操作</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//串清空操作</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">clearstring</span><span class="params">(Str &amp;str)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(str.ch)&#123;</span><br><span class="line">		<span class="built_in">free</span>(str.ch);</span><br><span class="line">		str.ch=<span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	str.len=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+     
+   
+</article>
+
+    
+    <article
   id="post-暑假打卡第三天-栈和队列"
   class="article article-type-post"
   itemscope
