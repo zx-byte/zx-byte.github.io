@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    暑假打卡第五天(树与二叉树) |  灵魂深处的凝视
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="灵魂深处的凝视" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-暑假打卡第五天-树与二叉树"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  暑假打卡第五天(树与二叉树)
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/07/03/%E6%9A%91%E5%81%87%E6%89%93%E5%8D%A1%E7%AC%AC%E4%BA%94%E5%A4%A9-%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/" class="article-date">
+  <time datetime="2020-07-03T07:23:39.000Z" itemprop="datePublished">2020-07-03</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">2.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">9 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>@[toc]</p>
+<h2 id="一，树的基本概念"><a href="#一，树的基本概念" class="headerlink" title="一，树的基本概念"></a>一，树的基本概念</h2><h3 id="1，树的定义："><a href="#1，树的定义：" class="headerlink" title="1，树的定义："></a>1，树的定义：</h3><p><font color="red"><strong>树形结构是一种典型的非线性数据结构，体现在数据元素之间有明显的层次关系。</strong></font><br><strong>树是由n个节点构成的有限集合，n大于等于零，节点数为零的树称为空树，节点数大于零的树称为非空树。<br>一棵非空树满足以下条件：</strong><br><font color="red"><strong>（1）有且仅有一个被称为根的特殊节点，其余所有节点都可由根节点经过一定的分支得到，而根结点R没有前驱节点。<br>（2）当n&gt;1时，除根节点R外的其它节点被分成m个互不相交的子集，T1,T2,….Tm，其中每个子集Ti本身又是一棵树，被称为R节点的子树。<br>树的定义是递归定义，即每个子树的定义也是按照上面的过程完成的。</strong></font></p>
+<h3 id="2，树的基本术语"><a href="#2，树的基本术语" class="headerlink" title="2，树的基本术语"></a>2，树的基本术语</h3><p><font color="red"><strong>（1）节点：节点由数据元素和构造元素之间关系的组成。<br>（2）节点的度：节点拥有的子树的个数称为该节点的度。<br>（3）树的度:树中各节点度最大值称为该树的度。<br>（4）叶子节点：将度为0的节点称为叶子节点，又称为终端节点<br>（5）分支节点：   将度不为0的节点称为分支节点，又称为非终端节点。<br>（6）节点的层次：从根节点到树中某节点所经路径上的边数加1称为该节点的层次。<br>（7）树的深度：树中所有节点的层次的最大值称为该树的深度。</strong></font></p>
+<h2 id="二，二叉树的基本概念"><a href="#二，二叉树的基本概念" class="headerlink" title="二，二叉树的基本概念"></a>二，二叉树的基本概念</h2><h3 id="1，二叉树的定义"><a href="#1，二叉树的定义" class="headerlink" title="1，二叉树的定义"></a>1，二叉树的定义</h3><p><font color="red"><strong>二叉树是由n个节点构成的有限集合，n大于等于零，每个节点的最多有两个子树的有序树。</strong></font><br><strong>二叉树的特点如下：<br>（1）二叉树是有序树，即使只有一个子树，也必须区分左、右子树。<br>（2）二叉树的每个节点的度不能大于2，只能取0、1、2三者中的一个。<br>（3）二叉树中所有节点的形态有5种，空节点、无左右子树的节点、只有左子树的节点、只有右子树的节点、同时具有左右子树的节点。</strong></p>
+<h3 id="2，二叉的性质"><a href="#2，二叉的性质" class="headerlink" title="2，二叉的性质"></a>2，二叉的性质</h3><p><font color="blue"><strong>性质1  二叉树的第i层上最多有2i-1个节点。<br>性质2  深度为h的二叉树上最多有2h-1个节点<br>性质3  具有n个节点的二叉树的高度不小于Log2(n+1)的最大整数<br>性质4  在任意一棵二叉树中，如果叶子节点的个数为n1,度为2的节点个数为n2,则n1=n2+1.<br>性质5  具有n个节点的完全二叉树的高度为Log2(n+1)。<br>性质6  假定对一颗有n个节点的完全二叉树中的节点，按从上到下，从左到右的顺序，从1到n编号，设树中某一个节点的序号为i，i&lt;=i&lt;=n.同，则有如下关系：<br>①若i等于1，则该节点为二叉树的根。<br>②若i大于1，则该节点喘气双亲节点的序号为i/2.<br>③若2i&lt;=n,则该节点的左孩子节点的序号为2i,否则该 节点无左孩子节点。<br>④若2i+1&lt;=n,则该节点的右孩子节点的序号为2i+1,否则该节点无右孩子节点。</strong></p>
+<h3 id="3，特殊二叉树"><a href="#3，特殊二叉树" class="headerlink" title="3，特殊二叉树"></a>3，特殊二叉树</h3><p><strong>满二叉树：若深度为h的二叉树，恰好具有2h-1个节点则该树称为满二叉树。<br>完全二叉树：若一棵具有n个节点的二叉树的逻辑结构与满二叉树的前n个节点的逻辑结构完全相同，则称该二叉树为完全二叉树。</strong></p>
+<h3 id="4，二叉树的存储结构"><a href="#4，二叉树的存储结构" class="headerlink" title="4，二叉树的存储结构"></a>4，二叉树的存储结构</h3><p><strong>二叉树的存储结构有顺序存储结构 、链式存储结构和仿真指针存储结构</strong><br><strong>（1）顺序存储结构<br>  <font color="blue">顺序存储结构也就是采用一维数组存储的。根据二叉树的性质6可以计算出双亲节点、左右孩子节点的下标。因此满二叉树、完全二叉树的存储可采用一维数组存储。</strong></font><br><font color="red"><strong>注意：一般的二叉树不宜采用顺序存储，这是由于如果采用该方法存储，不能确定一棵普通二叉树的各种关系。如果需要采用顺序存储结构存储一棵普通二叉树，可为一棵普通的二叉树增添一些并不存在的节点使之变成完全二叉树的形态，然后再采用顺序存储结构存储。</strong></font></p>
+<p><strong>（2）链式存储结构<br><font color="blue">链式存储结构采用链表存储二叉树中的数据元素。</strong></font><br><font color="##56f"><br><strong>二叉树中最常见的链式存储结构是二叉链，每一个节点包含3个域，分别是数据元素或data,左孩子域lChild和右孩子域rChild，<br>其节点结构：<br>二叉树的二叉链存储结构是常用的存储结构，<br>优点：结构简单，可方便地构造任何二叉树，可实现二叉树的大多数操作。<br>缺点：难以查找当前节点的双亲节点。（可采用三叉链存储结构解决这个问题，就是在二叉存储结构上再增加一个双亲节点的链域parent）</strong></font></p>
+<h3 id="5，二叉树的基本操作"><a href="#5，二叉树的基本操作" class="headerlink" title="5，二叉树的基本操作"></a>5，二叉树的基本操作</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span><span class="comment">//定义二叉树结构</span></span><br><span class="line">    <span class="keyword">char</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">lchild</span>,*<span class="title">rchild</span>;</span></span><br><span class="line">&#125;*BiTree,BiTNode;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreateBiTree</span><span class="params">(BiTree &amp;T)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//先序创建二叉树</span></span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;ch;</span><br><span class="line">    <span class="keyword">if</span>(ch==<span class="string">'#'</span>) T=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        T=<span class="keyword">new</span> BiTNode;</span><br><span class="line">        T-&gt;data=ch;</span><br><span class="line">        CreateBiTree(T-&gt;lchild);</span><br><span class="line">        CreateBiTree(T-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InOrderTraverse</span><span class="params">(BiTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//中序遍历</span></span><br><span class="line">    <span class="keyword">if</span>(T)</span><br><span class="line">    &#123;</span><br><span class="line">        InOrderTraverse(T-&gt;lchild);</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;T-&gt;data;</span><br><span class="line">        InOrderTraverse(T-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PreOrderTraverse</span><span class="params">(BiTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//先序遍历</span></span><br><span class="line">    <span class="keyword">if</span>(T)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;T-&gt;data;</span><br><span class="line">        PreOrderTraverse(T-&gt;lchild);</span><br><span class="line">        PreOrderTraverse(T-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PostOrderTraverse</span><span class="params">(BiTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//后序遍历</span></span><br><span class="line">    <span class="keyword">if</span>(T)</span><br><span class="line">    &#123;</span><br><span class="line">        PostOrderTraverse(T-&gt;lchild);</span><br><span class="line">        PostOrderTraverse(T-&gt;rchild);</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;T-&gt;data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Copy</span><span class="params">(BiTree T,BiTree &amp;NewT)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//二叉树的复制</span></span><br><span class="line">    <span class="keyword">if</span>(T==<span class="literal">NULL</span>)&#123;</span><br><span class="line">        NewT=<span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        NewT=<span class="keyword">new</span> BiTNode;</span><br><span class="line">        NewT-&gt;data=T-&gt;data;</span><br><span class="line">        Copy(T-&gt;lchild,NewT-&gt;lchild);</span><br><span class="line">        Copy(T-&gt;rchild,NewT-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Depth</span><span class="params">(BiTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//树的深度</span></span><br><span class="line">    <span class="keyword">if</span>(T==<span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> m=Depth(T-&gt;lchild);</span><br><span class="line">        <span class="keyword">int</span> n=Depth(T-&gt;rchild);</span><br><span class="line">        <span class="keyword">if</span>(m&gt;n) <span class="keyword">return</span> (m+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> (n+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">NodeCount</span><span class="params">(BiTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//统计二叉树中结点的个数</span></span><br><span class="line">    <span class="keyword">if</span>(T==<span class="literal">NULL</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> NodeCount(T-&gt;lchild)+NodeCount(T-&gt;rchild)+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">LeafCount</span><span class="params">(BiTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//统计二叉树中叶子结点的个数</span></span><br><span class="line">    <span class="keyword">if</span>(!T) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(!T-&gt;lchild &amp;&amp;!T-&gt;rchild)&#123;<span class="comment">//如果二叉树左子树和右子树皆为空,说明该二叉树根节点为叶子节点,加1.</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> LeafCount(T-&gt;lchild)+LeafCount(T-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Node_1_Count</span><span class="params">(BiTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//统计二叉树的度为1的结点个数</span></span><br><span class="line">    <span class="keyword">if</span>(!T) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>((!T-&gt;lchild)&amp;&amp;(T-&gt;rchild)||(T-&gt;lchild)&amp;&amp;(!T-&gt;rchild))</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span> + Node_1_Count(T-&gt;lchild) + Node_1_Count(T-&gt;rchild);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> Node_1_Count(T-&gt;lchild) + Node_1_Count(T-&gt;rchild);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PrintAllPath</span><span class="params">(BiTree T, <span class="keyword">char</span> path[], <span class="keyword">int</span> pathlen)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//二叉树中从每个叶子结点到根结点的路径</span></span><br><span class="line">  <span class="keyword">int</span> i;</span><br><span class="line">  <span class="keyword">if</span>(T != <span class="literal">NULL</span>) &#123;</span><br><span class="line">    path[pathlen] = T-&gt;data; <span class="comment">//将当前结点放入路径中</span></span><br><span class="line">    <span class="keyword">if</span>(T-&gt;lchild == <span class="literal">NULL</span> &amp;&amp; T-&gt;rchild == <span class="literal">NULL</span>) &#123;<span class="comment">//叶子结点</span></span><br><span class="line">        <span class="keyword">for</span>(i = pathlen; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; path[i] &lt;&lt; <span class="string">" "</span> ;</span><br><span class="line">      <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      PrintAllPath(T-&gt;lchild, path, pathlen + <span class="number">1</span>);</span><br><span class="line">      PrintAllPath(T-&gt;rchild, path, pathlen + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ExChangeTree</span><span class="params">(BiTree &amp;T)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//构造函数，使用递归算法进行左右结点转换</span></span><br><span class="line">    BiTree temp;</span><br><span class="line">    <span class="keyword">if</span>(T!=<span class="literal">NULL</span>)&#123;<span class="comment">//判断T是否为空，非空进行转换，否则不转换</span></span><br><span class="line">        temp=T-&gt;lchild;</span><br><span class="line">        T-&gt;lchild=T-&gt;rchild;<span class="comment">//直接交换节点地址</span></span><br><span class="line">        T-&gt;rchild=temp;</span><br><span class="line">        ExChangeTree(T-&gt;lchild);</span><br><span class="line">        ExChangeTree(T-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DblOrderTraverse</span><span class="params">(BiTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">//二叉树的双序遍历</span></span><br><span class="line">    <span class="keyword">if</span>(T)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;T-&gt;data;</span><br><span class="line">        DblOrderTraverse(T-&gt;lchild);</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;T-&gt;data;<span class="comment">//访问两遍</span></span><br><span class="line">        DblOrderTraverse(T-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    BiTree T;</span><br><span class="line">    <span class="comment">//测试例子AB#CD##E##F#GH###</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"先序遍历输入(以#结束):"</span>;</span><br><span class="line">    CreateBiTree(T);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"中序遍历输出:"</span>;</span><br><span class="line">    InOrderTraverse(T);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="string">"先序遍历输出:"</span>;</span><br><span class="line">    PreOrderTraverse(T);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="string">"后序遍历输出:"</span>;</span><br><span class="line">    PostOrderTraverse(T);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="string">"树的深度:"</span>&lt;&lt;Depth(T);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="string">"结点的个数:"</span>&lt;&lt;NodeCount(T);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="string">"叶结点的个数:"</span>&lt;&lt;LeafCount(T);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="string">"度为1的结点个数:"</span>&lt;&lt;Node_1_Count(T);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="string">"二叉树中从每个叶子结点到根结点的所有路径："</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">char</span> path[<span class="number">256</span>];</span><br><span class="line">    <span class="keyword">int</span> pathlen=<span class="number">0</span>;</span><br><span class="line">    PrintAllPath(T,path,pathlen);<span class="comment">//</span></span><br><span class="line">    <span class="comment">//交换二叉树每个结点的左孩子和右孩子</span></span><br><span class="line">    BiTree tem=T;<span class="comment">//直接复制一颗树，在不改变原树的前提下，对临时树进行交换。</span></span><br><span class="line">    ExChangeTree(tem);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"先序遍历输出交换后的结果:"</span>;</span><br><span class="line">    PreOrderTraverse(tem);</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="string">"双序遍历输出:"</span>;</span><br><span class="line">    DblOrderTraverse(T);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><font color="red"><strong>未完待续…..</strong></font></p>
+ 
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        Donate
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/07/03/%E6%9A%91%E5%81%87%E6%89%93%E5%8D%A1%E7%AC%AC%E4%BA%94%E5%A4%A9-%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/07/02/%E6%9A%91%E5%81%87%E6%89%93%E5%8D%A1%E7%AC%AC%E5%9B%9B%E5%A4%A9-%E4%B8%B2/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">暑假打卡第四天(串)</div>
+      </a>
+    
+  </nav>
+
+   
+    <!-- valine评论 -->
+    <div id="vcomments-box">
+        <div id="vcomments">
+        </div>
+    </div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <!-- <script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script> -->
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <!-- 评论背景 -->                                                         
+    <style>
+        #veditor{min-height: 10rem;
+            background-image: url(https://gitee.com/cungudafa/source/raw/master/img/gif/katon/pinkcoolpig.gif);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: right;
+            background-color: rgba(255,255,255,0);
+            resize: none;}
+    </style>
+    <!-- Valine配置 --> 
+    <script>
+        new Valine({
+            el: '#vcomments',
+        enableQQ: true,
+            app_id: 'pf8sLdnl9UDkyGBO3druPu0c-gzGzoHsz',
+            app_key: 'mSId9GxgQguu0rg6KjbIksSf',
+            path: window.location.pathname,
+            notify: 'false',
+            verify: 'false',
+            avatar: 'monsterid',
+            placeholder: '千山万水总是情，留个评论行不行',
+            recordIP: true,
+        
+        // 设置Bilibili表情包地址
+        emojiCDN: 'https://cdn.jsdelivr.net/gh/XXXZhy/Blog_Image/valine_emoticon/', 
+        // 表情title和图片映射
+        emojiMaps: {
+          "墙角滑稽": "害怕滑稽.gif",
+          "仙女下凡": "仙女下凡.webp",
+          "听歌": "听歌.webp",
+          "嫌弃": "嫌弃.webp",
+          "害羞": "害羞.webp",
+          "彩虹滑稽": "彩虹滑稽.webp",
+          "快走": "快走.webp",
+          "扯脸": "扯脸.webp",
+          "摸脸": "摸脸.webp",
+          "流汗": "流汗.webp",
+          "滑滑板": "滑滑板.webp",
+          "点赞": "点赞.webp",
+          "转圈圈": "转圈圈.webp",
+          // ... 更多表情
+        } 	
+        });
+        const infoEle = document.querySelector('#vcomments .info');
+        if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+            infoEle.childNodes.forEach(function (item) {
+                item.parentNode.removeChild(item);
+            });
+        }
+    </script>
+    
+    <style>
+        #vcomments-box {
+            padding: 5px 30px;
+        }
+    
+        @media screen and (max-width: 800px) {
+            #vcomments-box {
+                padding: 5px 0px;
+            }
+        }
+    
+        #vcomments-box #vcomments {
+            background-color: #fff;
+        }
+    
+        .v .vlist .vcard .vh {
+            padding-right: 20px;
+        }
+    
+        .v .vlist .vcard {
+            padding-left: 10px;
+        }
+    </style>
+    
+     
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> John Doe
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+
+    <!-- 运行天数 -->
+	<ul>
+		<li><span id="runtime_span"></span></li>
+	</ul>
+
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="灵魂深处的凝视"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="http://shenyu-vip.lofter.com" target="_blank" rel="noopener">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Subtitle -->
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+    console.log(err)
+  }
+</script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+
+<script src="/js/clickLove.js"></script>
+
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+<script src="/js/dz.js"></script>
+
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=22707008&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+  </div>
+</body>
+
+</html>
